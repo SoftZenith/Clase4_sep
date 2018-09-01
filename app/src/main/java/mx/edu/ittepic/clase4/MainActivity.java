@@ -27,14 +27,22 @@ public class MainActivity extends AppCompatActivity {
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String nombre = txtNombre.getText().toString();
+                String contrasena = txtContrasena.getText().toString();
+
                 if(chkMaestro.isChecked()){
                     //Mandar a pagina para maestro
                     Intent i = new Intent(getApplicationContext(), Maestro.class);
-                    startActivity(i);
+                    i.putExtra("nombre", nombre);
+                    i.putExtra("contrasena", contrasena);
+                    startActivity(i); //Lanzar activity
                 }else{
                     //Mandar a pagina para alumno
                     Intent i = new Intent(getApplicationContext(), Alumno.class);
-                    startActivity(i);
+                    i.putExtra("nombre", nombre);
+                    i.putExtra("contrasena", contrasena);
+                    startActivity(i); //Lanzar activity
                 }
             }
         });
